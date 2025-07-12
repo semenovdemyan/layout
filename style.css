@@ -1,9 +1,9 @@
 :root {
   font-family: 'Roboto', sans-serif;
   --color-main: #fff;
-  --color-text: #f0f0f0;
   --color-accent: #ff8d228a;
-  --color-secondary: #333;
+  --container-height__desktop: 96.5vh;
+  font-size: 16px;
 }
 
 [flex] {
@@ -19,6 +19,7 @@
   overflow: hidden;
   pointer-events: none;
 }
+
 /* +++ Глобальные стили и обнуления +++ */
 * {
   margin: 0;
@@ -30,6 +31,7 @@
 html {
   width: 100vw;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -37,6 +39,7 @@ body {
   min-height: 100vh;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 ol,
@@ -48,26 +51,29 @@ h2,
 h3 {
   color: var(--color-main);
 }
-/* Так как ссылок в вёрстке нет, можно убрать стили для ссылок */
-/* a {
-  text-decoration: none;
-  color: inherit;
-} */
 
 .section {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   display: block;
-  padding-bottom: 30px;
+  padding-bottom: 2.5rem; /* 40px */
 }
 
 .container {
   width: 100%;
   min-height: 100%;
 }
-/* --- Глобальные стили и обнуления --- */
+
+.section:not(.hero__section) .container {
+  height: var(--container-height__desktop);
+}
+
+.text {
+  color: var(--color-main);
+}
 
 /* +++ HERO +++ */
+
 .hero__advantage-image {
   width: 5%;
 }
@@ -76,8 +82,10 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+
 .hero__container > .hero__block:nth-child(1) {
-  min-height: 90vh;
+  flex-direction: column;
+  min-height: var(--container-height__desktop);
   background-size: cover;
   background-position: center center;
   background-image: linear-gradient(
@@ -89,7 +97,7 @@ h3 {
 }
 
 .hero__container > .hero__block:nth-child(3) {
-  height: 90vh;
+  height: var(--container-height__desktop);
   background-size: cover;
   background-position: center center;
   background-image: linear-gradient(
@@ -100,26 +108,49 @@ h3 {
     url(./assets/images/sect1-2.jpg);
 }
 
-.hero__container {
-}
 .hero__title1 {
+  padding-top: 12rem; /* 192px */
   text-align: center;
-  font-size: 7rem;
+  font-size: 8rem; /* 128px */
   margin: 0;
 }
+
 .hero__subtitle {
   text-align: center;
+  font-size: 2rem; /* 32px */
+  letter-spacing: 0.1rem; /* 1.6px */
+  padding-bottom: 10rem; /* 160px */
 }
+
 .hero__advantages {
+  justify-content: space-around;
 }
+
 .hero__advantage {
+  position: relative;
+  max-width: 14.375rem; /* 230px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .hero__advantage-image {
+  width: 70%;
+  height: 70%;
 }
+
 .hero__advantage-text {
+  font-weight: 400;
+  text-align: center;
+  align-items: baseline;
+  margin-top: auto;
+  font-size: 1.2rem; /* 19.2px */
+  text-wrap: balance;
 }
+
 .hero__slash {
-  margin: 20px;
+  margin: 1.25rem; /* 20px */
   width: 100%;
   background: linear-gradient(
     to right,
@@ -128,75 +159,52 @@ h3 {
     rgba(255, 255, 255, 0)
   );
 }
+.hero__cube {
+  position: sticky;
+  top: 20rem; /* 320px */
+  right: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  opacity: 0.3;
+  pointer-events: none;
+}
 /* --- HERO --- */
 
 /* +++ PARAMETERS +++ */
-.parameters__section {
-}
 .parameters__container {
+  background-size: cover;
+  background-position: center center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(./assets/images/sect2.jpg);
 }
-.parameters__list {
-}
-.parameters__item {
-}
-.parameters__img {
-}
-/* --- PARAMETERS --- */
 
-/* +++ MATERIAL +++ */
-.material__section {
+.parameters__img {
+  max-width: 2.75rem; /* 44px */
 }
+
+/* --- MATERIAL --- */
 .material__container {
+  background-size: cover;
+  background-position: center right;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(./assets/images/sect3.jpg);
 }
 .material__img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  max-height: 100%;
+  object-fit: contain;
 }
-/* --- MATERIAL --- */
 
-/* +++ DISTANCE +++ */
-.distance__section {
-}
-.distance__container {
-}
-.distance__block {
-}
-.distance__title3 {
-}
-/* --- DISTANCE --- */
-
-/* +++ MONTAGE +++ */
-.montage__section {
-}
-.montage {
-}
-.montage__title2 {
-}
-.montage--desktop {
-}
-.montage__block {
-}
-.montage__list {
-}
-.montage__item {
-}
-.montage__title--3 {
-}
-.montage--mobile {
-}
-/* --- MONTAGE --- */
-
-/* +++ DELIVERY +++ */
-.delivery__section {
-}
-.delivery__container {
-}
-.delivery__title {
-}
-/* --- DELIVERY --- */
-
-/* +++ LOADER +++ */
+/* --- LOADER --- */
 .loader {
   position: fixed;
   top: 0;
@@ -215,11 +223,11 @@ h3 {
 }
 
 .spinner {
-  border: 22px solid rgba(255, 255, 255, 0.2);
-  border-top: 22px solid #ffffff87;
+  border: 1.375rem solid rgba(255, 255, 255, 0.2); /* 22px */
+  border-top: 1.375rem solid #ffffff87;
   border-radius: 50%;
-  width: 166px;
-  height: 166px;
+  width: 10.375rem; /* 166px */
+  height: 10.375rem; /* 166px */
   animation: spin 2s linear infinite;
 }
 
