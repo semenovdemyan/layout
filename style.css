@@ -1,11 +1,24 @@
 :root {
   font-family: 'Roboto', sans-serif;
   --color-main: #fff;
-  --color-secondary: #f0f0f0;
-  --color-accent: #ff5722;
-  --color-text: #333;
+  --color-text: #f0f0f0;
+  --color-accent: #ff8d228a;
+  --color-secondary: #333;
 }
 
+[flex] {
+  display: flex;
+}
+
+[grid] {
+  display: grid;
+}
+
+[hidden] {
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+}
 /* +++ Глобальные стили и обнуления +++ */
 * {
   margin: 0;
@@ -15,22 +28,25 @@
 }
 
 html {
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  background: var(--color-main);
 }
 
 body {
+  width: 100%;
   min-height: 100vh;
   height: 100%;
+  overflow: hidden;
 }
 
-[flex] {
-  display: flex;
-}
 ol,
 ul {
   list-style-type: none;
+}
+
+h2,
+h3 {
+  color: var(--color-main);
 }
 /* Так как ссылок в вёрстке нет, можно убрать стили для ссылок */
 /* a {
@@ -39,26 +55,55 @@ ul {
 } */
 
 .section {
+  min-width: 100vw;
+  min-height: 100vh;
   display: block;
   padding-bottom: 30px;
 }
 
 .container {
+  width: 100%;
+  height: 100%;
 }
 /* --- Глобальные стили и обнуления --- */
 
 /* +++ HERO +++ */
 .hero__advantage-image {
   width: 5%;
-  height: auto;
 }
-.hero__section {
+
+.hero__container {
 }
+
+.hero__container > .hero__block:nth-child(1) {
+  min-height: 90vh;
+  background-size: cover;
+  background-position: center center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 25%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(./assets/images/sect1-1.jpg);
+}
+
+.hero__container > .hero__block:nth-child(2) {
+  min-height: 100vh;
+
+  background-image: url(./assets/images/sect1-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 .hero__container {
 }
 .hero__title1 {
+  text-align: center;
+  font-size: 7rem;
+  margin: 0;
 }
 .hero__subtitle {
+  text-align: center;
 }
 .hero__advantages {
 }
@@ -94,6 +139,11 @@ ul {
 .material__section {
 }
 .material__container {
+}
+.material__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 /* --- MATERIAL --- */
 
