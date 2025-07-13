@@ -3,6 +3,7 @@
   --color-main: #fff;
   --color-accent: #ff8d228a;
   --container-height__desktop: 96.5vh;
+  --slash-height: 2.5rem;
   font-size: 16px;
 }
 
@@ -52,15 +53,17 @@ h3 {
   color: var(--color-main);
 }
 
-.section {
+/* .section {
   min-width: 100vw;
   min-height: 100%;
-  display: block;
-  padding-bottom: 2.5rem; /* 40px */
+} */
+
+.section:not(:last-child) {
+  padding-bottom: var(--slash-height);
 }
 
 .container {
-  width: 100%;
+  min-width: 100%;
   min-height: 100%;
 }
 
@@ -79,11 +82,13 @@ h3 {
 }
 
 .hero__container {
-  display: flex;
-  flex-direction: column;
+  outline: 2px solid red;
+  min-height: 190vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero__container > .hero__block:nth-child(1) {
+#hero__block1 {
   flex-direction: column;
   min-height: var(--container-height__desktop);
   background-size: cover;
@@ -96,7 +101,7 @@ h3 {
     url(./assets/images/sect1-1.jpg);
 }
 
-.hero__container > .hero__block:nth-child(3) {
+#hero__block2 {
   height: var(--container-height__desktop);
   background-size: cover;
   background-position: center center;
@@ -150,7 +155,7 @@ h3 {
 }
 
 .hero__slash {
-  margin: 1.25rem; /* 20px */
+  margin: var(--slash-height);
   width: 100%;
   background: linear-gradient(
     to right,
@@ -160,15 +165,53 @@ h3 {
   );
 }
 .hero__cube {
+  opacity: 0.3;
+  display: block;
   position: sticky;
-  top: 40rem; /* 320px */
-  right: -0;
-  width: 50%;
-  height: 50%;
+  top: 50vh;
+  margin-right: -85px;
+  margin-left: auto;
+  width: 40vh;
+  height: 40vh;
+  background: url(./assets/images/cube2.svg);
+  background-repeat: no-repeat;
+  z-index: 10000;
+  margin-top: -180vh;
+}
+
+/* ------------------------------------------------------------------------------- */
+/* 
+q1 === hero__container
+q2 === hero__block:nth-child(1)
+q3 === hero__block:nth-child(2)
+q4 === .hero__cube
+.q1 {
+  position: relative;
+  min-height: 200vh;
+}
+
+.q2,
+.q3 {
+  height: 90rem;
+  background: #ccc;
+}
+
+.q4 {
   z-index: 1000;
   opacity: 0.3;
-  /* pointer-events: none; */
-}
+  display: block;
+  position: sticky;
+  top: 30vh;
+  margin-right: -30px;
+  margin-left: auto;
+  width: 40vh;
+  height: 40vh;
+  background: url(./assets/images/cube2.svg);
+  z-index: 10000;
+  margin-top: -180vh;
+} */
+
+/* ------------------------------------------------------------------------------- */
 
 /* --- HERO --- */
 
@@ -190,8 +233,10 @@ h3 {
 
 /* +++ MATERIAL +++ */
 .material__container {
+  display: block;
+  padding: 0 auto;
   background-size: cover;
-  background-position: center right;
+  background-position: 50%, 70%;
   background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.2) 25%,
@@ -200,9 +245,10 @@ h3 {
     url(./assets/images/sect3.jpg);
 }
 .material__img {
-  width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  /* margin: 0 auto; */
+  /* height: 100%; */
+  /* position: 50%, 70%; */
+  /* object-fit: contain; */
 }
 /* --- MATERIAL --- */
 
