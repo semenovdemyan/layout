@@ -36,7 +36,6 @@ html {
   overflow: hidden;
   height: 100%;
 }
-
 body {
   width: 100%;
   min-height: 100vh;
@@ -54,14 +53,16 @@ h2,
 h3 {
   color: var(--color-main);
 }
+.main {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
 
-/* .section {
-  min-width: 100vw;
-  min-height: 100%;
-} */
-
-.main .section:not(:first-child):not(:last-child) {
-  padding-bottom: var(--slash-height);
+.main .section:not(:last-child) {
+  margin-bottom: var(--slash-height);
 }
 
 .container {
@@ -141,6 +142,7 @@ h3 {
 
 .hero__advantages {
   justify-content: space-around;
+  padding: 5rem 0;
 }
 
 .hero__advantage {
@@ -179,16 +181,22 @@ h3 {
 .hero__cube {
   opacity: 0.3;
   display: block;
-  position: sticky;
-  top: 50vh;
-  margin-right: -85px;
+  position: absolute;
+  pointer-events: none;
+  top: 10vh;
+  right: 0;
+  margin-right: -105px;
   margin-left: auto;
-  width: 40vh;
-  height: 40vh;
+  width: 50vh;
+  height: 50vh;
   background: url(./assets/images/cube2.svg);
   background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   z-index: 10000;
-  margin-top: -180vh;
+  transition: none !important;
+  transform: translateY(0);
+  will-change: transform;
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -202,29 +210,7 @@ q4 === .hero__cube
   min-height: 200vh;
 }
 
-.q2,
-.q3 {
-  height: 90rem;
-  background: #ccc;
-}
-
-.q4 {
-  z-index: 1000;
-  opacity: 0.3;
-  display: block;
-  position: sticky;
-  top: 30vh;
-  margin-right: -30px;
-  margin-left: auto;
-  width: 40vh;
-  height: 40vh;
-  background: url(./assets/images/cube2.svg);
-  z-index: 10000;
-  margin-top: -180vh;
-} */
-
-/* ------------------------------------------------------------------------------- */
-
+.q2, 
 /* --- HERO --- */
 
 /* +++ PARAMETERS +++ */
