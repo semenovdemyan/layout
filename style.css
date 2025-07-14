@@ -1,9 +1,15 @@
 :root {
   font-family: 'Poppins', sans-serif;
   --color-main: #fff;
-  --color-accent: #ff8d228a;
+  --color-accent: #f6a6c98a;
   --container-height__desktop: 96.5vh;
   --slash-height: 2.5rem;
+  --gap: 10px;
+
+  ::selection {
+    color: var(--color-main);
+    background-color: var(--color-accent);
+  }
 }
 
 [flex] {
@@ -133,6 +139,7 @@ p {
 }
 
 .hero__subtitle {
+  color: #000;
   text-align: center;
   font-size: 2rem; /* 32px */
   letter-spacing: 0.1rem; /* 1.6px */
@@ -140,22 +147,26 @@ p {
 }
 
 .hero__advantages {
-  justify-content: space-around;
-  padding: 5rem 0;
+  width: 100%;
+  padding: 2rem 0 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .hero__advantage {
-  position: relative;
-  max-width: 14.375rem; /* 230px */
+  flex: 1 1 200px;
+  max-width: 230px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hero__advantage:hover {
-  transform: scale(1.2);
-  transform-origin: center center;
+  transform: scale(1.1);
 }
 
 .hero__advantage-image {
@@ -207,6 +218,7 @@ p {
 
 /* +++ PARAMETERS +++ */
 .parameters__container {
+  display: flex;
   background-size: cover;
   background-position: top right;
   background-image: linear-gradient(
@@ -218,15 +230,33 @@ p {
 }
 
 .parameters__img {
-  max-width: 44px;
+  max-height: 80px;
+  margin-bottom: 20px;
+}
+.text {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.text span {
+  margin-right: 4px;
+  font-size: 35px;
+}
+.parameters__item:not(:last-child) {
+  margin-bottom: 60px;
 }
 
-.parameters__item {
+.parameters__list {
+  padding: 140px 20px 100px 0;
+  margin-left: auto;
+  width: 400px;
 }
+/* --- PARAMETERS --- */
 
 /* +++ MATERIAL +++ */
 .material__container {
   display: flex;
+  justify-content: space-around;
   background-size: cover;
   background-position: center, right;
   background-image: linear-gradient(
@@ -238,7 +268,7 @@ p {
 }
 
 .material__img {
-  margin: 0 auto;
+  margin-left: 100px;
   height: 100%;
   position: 50%, 70%;
   object-fit: contain;
@@ -284,13 +314,8 @@ p {
 .distance__title3 {
 }
 /* +++ DISTANCE +++ */
+
 /* +++ MONTAGE +++ */
-.montage__section {
-}
-
-.montage__container {
-}
-
 .montage__title2 {
   width: 100%;
   text-align: center;
@@ -323,27 +348,14 @@ p {
 
 .montage__list {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   height: 100%;
-  gap: 5px;
+  gap: var(--gap);
 }
 
-/* .montage__list::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-} */
-
 .montage__item {
+  max-width: 620px;
   background-image: url(./assets/images/sect-montage.jpg);
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -358,6 +370,8 @@ p {
 
 .montage__item p {
   text-align: center;
+  margin: 20px;
+  font-size: 30px;
 }
 .montage--mobile .montage__list {
   flex-direction: column;
@@ -437,4 +451,7 @@ p {
 }
 
 @media (max-width: 1600px) {
+  .hero__subtitle {
+    padding-bottom: 3rem;
+  }
 }
