@@ -1,10 +1,9 @@
 :root {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   --color-main: #fff;
   --color-accent: #ff8d228a;
   --container-height__desktop: 96.5vh;
   --slash-height: 2.5rem;
-  font-size: 16px;
 }
 
 [flex] {
@@ -50,9 +49,11 @@ ul {
 }
 
 h2,
-h3 {
+h3,
+p {
   color: var(--color-main);
 }
+
 .main {
   height: 100%;
   overflow-y: auto;
@@ -61,7 +62,7 @@ h3 {
   position: relative;
 }
 
-.main .section:not(:first-child):not(:last-child) {
+.main .section:not(:last-child) {
   margin-bottom: var(--slash-height);
 }
 
@@ -85,9 +86,6 @@ h3 {
 }
 
 .hero__container {
-  min-height: calc(
-    (var(--container-height__desktop) + var(--slash-height)) * 2
-  );
   position: relative;
   overflow: hidden;
 }
@@ -120,6 +118,7 @@ h3 {
     ),
     url(./assets/images/sect1-2.jpg);
 }
+
 .hero__image2 {
   width: auto;
   height: 100%;
@@ -154,6 +153,11 @@ h3 {
   justify-content: space-between;
 }
 
+.hero__advantage:hover {
+  transform: scale(1.2);
+  transform-origin: center center;
+}
+
 .hero__advantage-image {
   width: 70%;
   height: 70%;
@@ -178,6 +182,7 @@ h3 {
     rgba(255, 255, 255, 0)
   );
 }
+
 .hero__cube {
   opacity: 0.3;
   display: block;
@@ -198,19 +203,6 @@ h3 {
   transform: translateY(0);
   will-change: transform;
 }
-
-/* ------------------------------------------------------------------------------- */
-/* 
-q1 === hero__container
-q2 === hero__block:nth-child(1)
-q3 === hero__block:nth-child(2)
-q4 === .hero__cube
-.q1 {
-  position: relative;
-  min-height: 200vh;
-}
-
-.q2, 
 /* --- HERO --- */
 
 /* +++ PARAMETERS +++ */
@@ -244,6 +236,7 @@ q4 === .hero__cube
     ),
     url(./assets/images/sect3.jpg);
 }
+
 .material__img {
   margin: 0 auto;
   height: 100%;
@@ -256,6 +249,7 @@ q4 === .hero__cube
 .distance__container {
   width: 100%;
 }
+
 .distance__container > .distance__block:nth-child(1) {
   width: auto;
   height: 100%;
@@ -269,6 +263,7 @@ q4 === .hero__cube
     ),
     url(./assets/images/sect4-1.jpg);
 }
+
 .distance__container > .distance__block:nth-child(2) {
   min-width: 70%;
   height: auto;
@@ -282,54 +277,93 @@ q4 === .hero__cube
     ),
     url(./assets/images/sect4-2.jpg);
 }
+
 .distance__block {
 }
+
 .distance__title3 {
 }
 /* +++ DISTANCE +++ */
 /* +++ MONTAGE +++ */
 .montage__section {
 }
+
 .montage__container {
-  /* background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 25%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    url(./assets/images/sect-montage.jpg);
-  background-repeat: no-repeat; */
 }
+
 .montage__title2 {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 2rem 4rem;
   position: absolute;
+  font-size: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
-.montage--desktop {
+
+.montage__title--3 {
+  position: relative;
+  text-align: center;
+}
+
+.montage--desktop,
+.montage--mobile {
+  height: 100%;
+}
+
+.montage__img {
   height: 100%;
 }
 
 .montage__list {
   display: flex;
-
   justify-content: center;
-  align-items: stretch;
-
   height: 100%;
   gap: 5px;
 }
 
+/* .montage__list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+} */
+
 .montage__item {
-  text-align: bottom center;
-  flex: 1 1 auto;
-  flex-grow: 1;
-  padding: 15px;
-  background-size: auto 100%;
+  background-image: url(./assets/images/sect-montage.jpg);
   background-repeat: no-repeat;
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 25%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    url(./assets/images/sect-montage.jpg);
+  background-size: auto 100%;
+  background-position: center center;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
 }
+
+.montage__item p {
+  text-align: center;
+}
+.montage--mobile .montage__list {
+  flex-direction: column;
+  align-items: center;
+}
+
 .montage__list > .montage__item:nth-child(1) {
   background-position: left center;
 }
@@ -343,6 +377,7 @@ q4 === .hero__cube
 }
 
 .montage__title--3 {
+  font-size: 3rem;
 }
 .montage--mobile {
 }
@@ -401,5 +436,5 @@ q4 === .hero__cube
   }
 }
 
-/* @media (max-width: 1600px) {
-} */
+@media (max-width: 1600px) {
+}
