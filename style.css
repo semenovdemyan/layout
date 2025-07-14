@@ -88,7 +88,7 @@ p {
 /* +++ HERO +++ */
 
 .hero__advantage-image {
-  width: 5%;
+  margin-bottom: 10px;
 }
 
 .hero__container {
@@ -132,10 +132,10 @@ p {
 }
 
 .hero__title1 {
-  padding-top: 12rem; /* 192px */
-  text-align: center;
-  font-size: 8rem; /* 128px */
   margin: 0;
+  font-size: clamp(2rem, 8vw, 8rem);
+  text-align: center;
+  padding-top: clamp(4rem, 12vw, 12rem);
 }
 
 .hero__subtitle {
@@ -157,7 +157,7 @@ p {
 
 .hero__advantage {
   flex: 1 1 200px;
-  max-width: 230px;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,7 +179,7 @@ p {
   text-align: center;
   align-items: baseline;
   margin-top: auto;
-  font-size: 1.2rem; /* 19.2px */
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   text-wrap: balance;
 }
 
@@ -230,27 +230,28 @@ p {
 }
 
 .parameters__img {
-  max-height: 80px;
+  max-height: clamp(40px, 5vw, 80px);
   margin-bottom: 20px;
 }
-.text {
-  font-size: 25px;
+.parameters__item .text {
+  font-size: clamp(1.2rem, 2vw, 1.56rem);
   font-weight: 400;
   margin-bottom: 5px;
 }
-.text span {
+.parameters__item .text span {
   margin-right: 4px;
-  font-size: 35px;
+  font-size: clamp(1.75rem, 4vw, 2.18rem);
 }
 .parameters__item:not(:last-child) {
   margin-bottom: 60px;
 }
-
 .parameters__list {
   padding: 140px 20px 100px 0;
   margin-left: auto;
-  width: 400px;
+  max-width: 400px;
+  min-width: 23%;
 }
+
 /* --- PARAMETERS --- */
 
 /* +++ MATERIAL +++ */
@@ -278,12 +279,14 @@ p {
 /* +++ DISTANCE +++ */
 .distance__container {
   width: 100%;
+  gap: var(--gap);
 }
 
-.distance__container > .distance__block:nth-child(1) {
-  width: auto;
+#distance1 {
+  flex: 1 1 30%;
   height: 100%;
-  background-size: cover;
+  max-width: 440px;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center right;
   background-image: linear-gradient(
@@ -294,9 +297,9 @@ p {
     url(./assets/images/sect4-1.jpg);
 }
 
-.distance__container > .distance__block:nth-child(2) {
-  min-width: 70%;
-  height: auto;
+#distance2 {
+  flex: 1 1 60%;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -308,9 +311,6 @@ p {
     url(./assets/images/sect4-2.jpg);
 }
 
-.distance__block {
-}
-
 .distance__title3 {
 }
 /* +++ DISTANCE +++ */
@@ -319,12 +319,11 @@ p {
 .montage__title2 {
   width: 100%;
   text-align: center;
-  padding: 2rem 2rem 4rem;
+  padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 2vw, 2rem) clamp(2rem, 5vw, 4rem);
   position: absolute;
-  font-size: 10rem;
+  font-size: clamp(5rem, 12vw, 10rem);
   left: 50%;
   transform: translateX(-50%);
-
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.7) 0%,
@@ -335,6 +334,7 @@ p {
 .montage__title--3 {
   position: relative;
   text-align: center;
+  font-size: clamp(1rem, 3vw, 3rem);
 }
 
 .montage--desktop,
@@ -365,13 +365,13 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 15px;
+  padding: clamp(0.5rem, 1vw, 1rem);
 }
 
 .montage__item p {
   text-align: center;
-  margin: 20px;
-  font-size: 30px;
+  margin: clamp(0.75rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 6vw, 1rem);
 }
 .montage--mobile .montage__list {
   flex-direction: column;
@@ -390,17 +390,12 @@ p {
   background-position: right center;
 }
 
-.montage__title--3 {
-  font-size: 3rem;
-}
 .montage--mobile {
 }
 /* --- MONTAGE --- */
 
 /* --- DELIVERY --- */
 .delivery__section {
-}
-.delivery__container {
   background-size: cover;
   background-position: center center;
   background-image: linear-gradient(
@@ -410,8 +405,28 @@ p {
     ),
     url(./assets/images/sect6.jpg);
 }
-.delivery__title {
+
+.delivery__container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4rem clamp(3rem, 7vw, 7rem) 2rem 0;
 }
+
+.delivery__container div {
+  min-width: clamp(250px, 30%, 600px);
+  display: flex;
+  flex-direction: column;
+}
+.delivery__title1 {
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.delivery__title2 {
+  font-weight: 500;
+  font-size: clamp(4rem, 10vw, 9rem);
+}
+
 /* --- DELIVERY --- */
 
 /* --- LOADER --- */
@@ -453,5 +468,13 @@ p {
 @media (max-width: 1600px) {
   .hero__subtitle {
     padding-bottom: 3rem;
+  }
+  .material__container {
+    max-width: 100%;
+    height: auto;
+    background-position: center, center;
+  }
+  .material__img {
+    width: 100%;
   }
 }
