@@ -6,7 +6,6 @@ window.addEventListener('load', function () {
   }
 });
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const cube = document.querySelector('.hero__cube');
   const main = document.querySelector('.main');
