@@ -245,8 +245,8 @@ p {
 }
 
 .parameters__list {
-  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem)
-           clamp(2rem, 6vw, 5rem) 0;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 6vw, 5rem)
+    0;
   margin-left: auto;
   max-width: clamp(280px, 35vw, 400px);
 }
@@ -426,7 +426,7 @@ p {
   z-index: 30;
   position: relative;
   text-align: center;
-  font-size: clamp(2vw, 12px, 6rem);
+  font-size: clamp(10px, 3vw, 4vw);
 }
 
 .montage--desktop,
@@ -464,7 +464,7 @@ p {
   z-index: 30;
   text-align: center;
   margin: clamp(0.75rem, 2vw, 1.25rem) 0;
-  font-size: clamp(10px, 20px, 3rem);
+  font-size: clamp(1vw, 2vw, 3vw);
 }
 .montage--mobile .montage__list {
   flex-direction: column;
