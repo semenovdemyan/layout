@@ -142,25 +142,26 @@ p {
 .hero__subtitle {
   color: #000;
   text-align: center;
-  font-size: clamp(10px, 2vw, 2rem);
+  font-size: clamp(12px, 2vw, 2rem);
   letter-spacing: 0.1rem;
-  padding-bottom: clamp(2px, 2.5vw, 2rem);
+  padding-bottom: clamp(2px, 3vw, 2rem);
 }
 
 .hero__advantages {
+  min-height: 100px;
   overflow: hidden;
   margin: auto 0;
-  padding: 5px clamp(10px, 7vw, 30px);
+  padding: 0 30px;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
 }
 
 .hero__advantage {
-  flex: 1 0 clamp(10vw, 15vw, 200px);
-  max-width: clamp(30vw, 24vw, 30vw);
-  height: 100%;
+  flex: 1 1 clamp(25vw, 15vw, 200px);
+  min-width: clamp(10vw, 15vw, 200px);
+  max-width: clamp(200px, 25vw, 300px);
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,7 +183,7 @@ p {
   text-align: center;
   align-items: baseline;
   margin-top: auto;
-  font-size: clamp(10px, 1.5vw, 24px);
+  font-size: clamp(8px, 1.5vw, 1.2rem);
   text-wrap: balance;
 }
 
@@ -544,12 +545,29 @@ p {
     --container-height__desktop: 80vw;
     --slash-height: 2vw;
   }
+  #advantage-1 {
+    order: 1;
+  }
+  #advantage-2 {
+    order: 4;
+  }
+  #advantage-3 {
+    order: 5;
+  }
+  #advantage-4 {
+    order: 2;
+  }
+  #advantage-5 {
+    order: 3;
+  }
 
   .hero__cube {
     width: 40vw;
     height: 40vw;
   }
-
+  .hero__advantage {
+    max-width: 33%;
+  }
   .material__container {
     max-width: 100%;
     height: auto;
