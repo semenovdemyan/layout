@@ -1,3 +1,6 @@
+/*ToDo: много повторяющихся стилей, не все теги имеют классы.
+добавление оставшихся классов и вложенность scss уменьшит количество кода */
+
 :root {
   font-family: 'Poppins', sans-serif;
   --color-main: #fff;
@@ -37,7 +40,6 @@
 html {
   width: 100vw;
   max-height: fit-content;
-  overflow-x: hidden;
   overflow: hidden;
   height: 100%;
 }
@@ -73,7 +75,6 @@ p {
 }
 
 .container {
-  min-width: 100%;
   height: calc(var(--container-height__desktop) + var(--slash-height));
 }
 
@@ -89,10 +90,6 @@ p {
 /* +++ HERO +++ */
 .hero__section {
   margin-bottom: var(--slash-height);
-}
-
-.hero__advantage-image {
-  margin-bottom: 10px;
 }
 
 .hero__container {
@@ -146,23 +143,23 @@ p {
   color: #000;
   text-align: center;
   font-size: clamp(12px, 2vw, 2rem);
-  letter-spacing: 0.1rem; /* 1.6px */
-  padding-bottom: clamp(10px, 2vh, 2rem);
+  letter-spacing: 0.1rem;
+  padding-bottom: clamp(2px, 3vw, 2rem);
 }
 
 .hero__advantages {
+  overflow: hidden;
   margin: auto 0;
-  padding: 0;
+  padding: 0 30px;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* gap: clamp(10px, 3vw, 2rem); */
 }
 
 .hero__advantage {
-  flex: 0 1 clamp(10vw, 22vw, 200px);
-  /* max-width: clamp(6vw, 22vw, 240px); */
-  width: 240px;
+  flex: 1 1 clamp(10vw, 15vw, 200px);
+  max-width: clamp(6vw, 24vw, 30vw);
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,8 +172,8 @@ p {
 }
 
 .hero__advantage-image {
-  width: 70%;
-  height: 70%;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .hero__advantage-text {
@@ -222,25 +219,8 @@ p {
 /* --- HERO --- */
 
 /* +++ PARAMETERS +++ */
-.parameters__img {
-  max-height: clamp(32px, 4vw, 64px); /* адаптивнее */
-  margin-bottom: clamp(0.5rem, 1.5vw, 1.25rem);
-}
-
 .parameters__item {
   margin-bottom: clamp(20px, 3vw, 100px);
-}
-
-.parameters__item .text {
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  font-weight: 400;
-  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
-}
-
-.parameters__item .text span {
-  font-weight: 600;
-  margin: 0 clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 0.75rem) 0;
-  font-size: clamp(1.3rem, 3vw, 2rem);
 }
 
 .parameters__section {
@@ -282,10 +262,10 @@ p {
 }
 
 .parameters__list {
-  padding: clamp(20px, 5vw, 90px) clamp(35px, 5vw, 90px) 0 0;
+  padding: clamp(20px, 5vw, 90px) clamp(45px, 6vw, 90px) 0 0;
   margin-left: auto;
-  max-width: 400px;
-  min-width: 25%;
+  max-width: clamp(200px, 50vw, 400px);
+  min-width: 27%;
 }
 /* --- PARAMETERS --- */
 
@@ -322,11 +302,11 @@ p {
 .distance__container {
   max-height: var(--container-height__desktop);
   width: 100%;
-  gap: var(--gap);
+  gap: calc(var(--gap) / 2);
 }
 
 #distance1 {
-  padding-left: 3.5rem;
+  padding-left: clamp(1rem, 5vw, 3.5rem);
   display: flex;
   flex: 1 1 40%;
   height: 100%;
@@ -334,7 +314,7 @@ p {
   background-size: cover;
   background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: center center;
   background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.2) 25%,
@@ -348,7 +328,7 @@ p {
   flex-direction: column;
   flex: 1 1 60%;
   height: 100%;
-  padding: 20% 0 var(--slash-height) 2.5rem;
+  padding: 20% 0 var(--slash-height) clamp(1rem, 4vw, 2.5rem);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -365,14 +345,14 @@ p {
 }
 
 .distance__title3--1 {
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(0.5rem, 2.5vw, 2rem);
   opacity: 0.8;
   font-weight: 400;
   margin: auto auto var(--slash-height) 0;
 }
 
 .distance__title3--2 {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(1rem, 5vw, 6rem);
 }
 
 /* +++ DISTANCE +++ */
@@ -428,10 +408,6 @@ p {
   height: 100%;
 }
 
-.montage__img {
-  height: 100%;
-}
-
 .montage__list {
   display: flex;
   flex-wrap: wrap;
@@ -455,12 +431,18 @@ p {
 }
 
 .montage__item p {
-  /* min-height: 40px; */
   z-index: 30;
   text-align: center;
   margin: clamp(5px, 1vw, 1.25rem) 0 clamp(10px, 2vw, 2.5rem);
   font-size: clamp(1vw, 2vw, 3vw);
 }
+
+.montage--mobile {
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .montage--mobile .montage__list {
   flex-direction: column;
   align-items: center;
@@ -539,11 +521,11 @@ p {
 }
 
 .spinner {
-  border: 1.375rem solid rgba(255, 255, 255, 0.2); /* 22px */
+  border: 1.375rem solid rgba(255, 255, 255, 0.2);
   border-top: 1.375rem solid #ffffff87;
   border-radius: 50%;
-  width: 10.375rem; /* 166px */
-  height: 10.375rem; /* 166px */
+  width: 10.375rem;
+  height: 10.375rem;
   animation: spin 2s linear infinite;
 }
 
@@ -575,7 +557,98 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  .material__img {
+  .material__img,
+  .montage__container .montage__darken {
     display: none;
   }
+
+  .montage--desktop {
+    display: none;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* МОБИЛКА */
+  .montage--mobile {
+    gap: calc(var(--gap) / 2);
+    display: flex;
+  }
+
+  .montage__list--mobile {
+    flex-direction: column;
+    height: 100%;
+    gap: calc(var(--gap) / 2);
+  }
+
+  .montage--mobile .montage__list--mobile li {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .montage--mobile .montage__title--3 {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .montage__title--mobile {
+    font-weight: 400;
+    display: inline-block;
+    width: 100%;
+    height: 40%;
+    font-size: clamp(10px, 4vw, 60px);
+    padding: clamp(20px, 3vw, 35px);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .montage--mobile > * {
+    flex: 1 1;
+  }
+  .montage__list--mobile .montage__item--mobile {
+    flex: 0 0 50%;
+    height: 50%;
+  }
+
+  .montage__container {
+    display: flex;
+    justify-content: center;
+  }
+  .montage__container > * {
+    flex: 1;
+  }
+  .montage__title2 {
+    font-weight: 400;
+    padding: 16px 0;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .montage--mobile .montage__list--mobile .montage__item--mobile:first-child {
+    background-position: top left;
+    background-image: url(./assets/images/sect-montage.jpg);
+    background-size: auto 160%;
+    background-position: center left;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .montage--mobile .montage__list--mobile .montage__item--mobile:last-child {
+    background-size: auto 160%;
+    background-image: url(./assets/images/sect-montage.jpg);
+    background-position: center center;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .montage--mobile div:last-child {
+    display: flex;
+    flex-direction: column;
+    background-image: url(./assets/images/sect-montage.jpg);
+    background-size: auto 100%;
+    background-position: center right;
+  }
+  /* МОБИЛКА */
 }
